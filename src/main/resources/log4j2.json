@@ -1,0 +1,45 @@
+{
+  "configuration": {
+    "status": "debug",
+    "name": "RoutingTest",
+    "packages": "com.",
+    "properties": {
+      "property": {
+        "name": "filename",
+        "value": "target/rolling1/rollingtest-aspectj-example-master.log"
+      }
+    },
+    "ThresholdFilter": {
+      "level": "debug"
+    },
+    "appenders": {
+      "appender": [
+        {
+          "type": "Console",
+          "name": "STDOUT",
+          "PatternLayout": {
+            "pattern": "%m%n"
+          }
+        }
+      ]
+    },
+    "loggers": {
+      "logger": [
+        {
+          "name": "com.example",
+          "level": "trace",
+          "additivity": "false",
+          "AppenderRef": {
+            "ref": "STDOUT"
+          }
+        }
+      ],
+      "root": {
+        "level": "trace",
+        "AppenderRef": {
+          "ref": "STDOUT"
+        }
+      }
+    }
+  }
+}

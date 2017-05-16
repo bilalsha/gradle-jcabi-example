@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Log message format -->
+        <encoder>
+            <pattern>"%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} [%t] %-5level %logger{36} - %msg%n"</pattern>
+        </encoder>
+    </appender>
+    <!-- Ned appender to write to file -->
+    <appender name="DEBUGOUT" class="ch.qos.logback.core.FileAppender">
+        <!-- Name of the file where the log messages are written -->
+        <file>logs/data-service-std.log</file>
+        <encoder>
+            <pattern>"%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} [%t] %-5level %logger{36} - %msg%n"</pattern>
+        </encoder>
+    </appender>
+    <appender name="ERROROUT" class="ch.qos.logback.core.FileAppender">
+        <!-- Name of the file where the log messages are written -->
+        <file>logs/data-service-error.log</file>
+        <encoder>
+            <pattern>"%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} [%t] %-5level %logger{36} - %msg%n"</pattern>
+        </encoder>
+    </appender>
+    <appender name="SECURITYOUT" class="ch.qos.logback.core.FileAppender">
+        <!-- Name of the file where the log messages are written -->
+        <file>logs/data-service-security.log</file>
+        <encoder>
+            <pattern>"%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} [%t] %-5level %logger{36} - %msg%n"</pattern>
+        </encoder>
+    </appender>
+    <logger name="warnLoger" level="WARN">
+        <appender-ref ref="DEBUGOUT" />
+    </logger>
+    <logger name="debugLogger" level="DEBUG">
+        <appender-ref ref="DEBUGOUT" />
+    </logger>
+    <logger name="errorLogger" level="ERROR">
+        <appender-ref ref="ERROROUT" />
+    </logger>
+    <logger name="org.springframework.security" level="ALL">
+        <appender-ref ref="SECURITYOUT" />
+    </logger>
+    <!-- Setting the root level of logging to INFO -->
+    <root level="info">
+        <appender-ref ref="DEBUGOUT" />
+    </root>
+</configuration>
